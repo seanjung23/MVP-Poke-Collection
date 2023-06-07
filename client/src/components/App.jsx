@@ -1,16 +1,63 @@
-import React, { useState } from 'react';
-import Dashboard from './Dashboard.jsx';
-import Preferences from './Preferences.jsx';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Glossary from "./Glossary.jsx";
+import Collection from "./Collection.jsx";
+import { GlossaryButton, CollectionButton } from "./Buttons.jsx";
 
-const App = () => {
+export default function App() {
+  const [glossaryData, setGlossaryData] = useState([]);
+  const [clickButton, setClickButton] = useState(true);
+  const [goGlossary, setGoGlossary] = useState(false);
+  const [goCollection, setGoCollection] = useState(false);
+
+  useEffect(() => {
+    let params = {
+      page: 1,
+      pageSize: 102,
+      orderBy: "set.releaseDate",
+    };
+
+    axios
+      .get("/cards", { params })
+      .then((cardsData) => setGlossaryData(cardsData.data))
+      .catch((err) =>
+        console.error("error retrieving card information from server!", err)
+      );
+  }, []);
+
+  const handleGlossaryButtonClick = () => {
+    setClickButton(!clickButton);
+    setGoGlossary(!goGlossary);
+  };
+
+  const handleCollectionButtonClick = () => {
+    setClickButton(!clickButton);
+    setGoCollection(!goCollection);
+  };
 
   return (
     <div>
-      <h1 className="main-title">PokéCollect</h1>
-      //create login authentication
-      {/* <Preferences /> */}
+      {clickButton && (
+        <div>
+          <h1 className="main-title">Pokédex</h1>
+          <GlossaryButton
+            handleGlossaryButtonClick={handleGlossaryButtonClick}
+          />
+          <CollectionButton
+            handleCollectionButtonClick={handleCollectionButtonClick}
+          />
+        </div>
+      )}
+      {goGlossary && (
+        <div>
+          <Glossary glossaryData={glossaryData} />
+        </div>
+      )}
+      {goCollection && (
+        <div>
+          <Collection />
+        </div>
+      )}
     </div>
   );
 }
-
-export default App;
