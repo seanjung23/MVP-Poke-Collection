@@ -30,7 +30,6 @@
     "nodemon": "^2.0.22",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.11.2",
     "webpack": "^5.85.1",
     "webpack-cli": "^5.1.3"
   }

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const { ObjectId } = require('mongodb');
+const {ObjectId} = require('mongodb');
 
 mongoose.connect('mongodb://127.0.0.1:27017/poke');
 
