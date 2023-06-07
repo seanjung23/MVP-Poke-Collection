@@ -12,8 +12,8 @@ export default function App() {
 
   useEffect(() => {
     let params = {
+      q: "id:base1",
       page: 1,
-      pageSize: 102,
       orderBy: "set.releaseDate",
     };
 
