@@ -12,14 +12,15 @@ export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   );
 };
 
-export const CollectionButton = ({ handleCollectionButtonClick }) => {
+export const NukeButton = ({ handleNukeButtonClick }) => {
   return (
-    <button
-      className="main-button"
+    <div className="nuclear">
+      <button
       type="button"
-      onClick={handleCollectionButtonClick}
+      onClick={handleNukeButtonClick}
     >
-      Go to PokéCollection
+      Nuke Pokédex D:&lt;
     </button>
+    </div>
   );
 };

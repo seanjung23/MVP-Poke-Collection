@@ -9,7 +9,7 @@
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 7;
+  z-index: 1;
 }
 
 .details-modal-content {
@@ -28,8 +28,8 @@
 }
 
 .details-modal-body {
-  border-bottom: 0.06em solid #ff0000;
-  border-top: 0.06em solid #ff0000;
+  border-bottom: 0.06em solid #000000;
+  border-top: 0.06em solid #000000;
   padding: 0.6em;
 }
 
@@ -55,5 +55,45 @@
 
 .poke-image {
   height: 20vw;
+  margin: 0;
   width: 15vw;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: rgb(177, 96, 96);
+  }
+  100% {
+    background-color: red;
+  }
+}
+
+.nuclear button {
+  background-color: white;
+  animation: colorChange 2s infinite;
+  margin: 3%;
+  height: 9em;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.nuclear button:hover {
+  color: white;
+}
+
+.nuke-page {
+  font-size: 20em;
+  text-align: center;
+}
+
+.nuke-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nuke-img {
+  width: 90%;
 }

@@ -38,16 +38,16 @@ export default function GlossaryEntry({card}) {
   };
 
   return (
-    <div className="poke-card" onClick={() => setClickedPokemon(true)}>
+    <div className="poke-card" onClick={() => setClickedPokemon(!clickedPokemon)}>
       <img className="poke-image" src={card.images.large}></img>
       <div>
         <h5 className="poke-title">{card.name}</h5>
-        <p>Set: {card.set.name}</p>
+        <p>Set: {card.set.name} Set</p>
         <p>Rarity: {card.rarity || "Common"}</p>
         <p>Low: {low()}</p>
         <p>Market Price: {market()}</p>
       </div>
-      {clickedPokemon && <Details card={card} setClickedPokemon={setClickedPokemon} />}
+      {clickedPokemon && <Details card={card} clickedPokemon={clickedPokemon} setClickedPokemon={setClickedPokemon} />}
     </div>
   );
 }

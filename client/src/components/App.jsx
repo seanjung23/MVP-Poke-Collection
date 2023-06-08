@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Glossary from "./Glossary.jsx";
-import Collection from "./Collection.jsx";
-import { GlossaryButton, CollectionButton } from "./Buttons.jsx";
+import Nuke from "./Nuke.jsx";
+import { GlossaryButton, NukeButton } from "./Buttons.jsx";
 
 export default function App() {
   const [glossaryData, setGlossaryData] = useState([]);
   const [clickButton, setClickButton] = useState(true);
   const [goGlossary, setGoGlossary] = useState(false);
-  const [goCollection, setGoCollection] = useState(false);
+  const [goNuke, setGoNuke] = useState(false);
 
   useEffect(() => {
     let params = {
@@ -19,7 +19,10 @@ export default function App() {
 
     axios
       .get("/cards", { params })
-      .then((cardsData) => setGlossaryData(cardsData.data))
+      .then((cardsData) => {
+        console.log(cardsData);
+        setGlossaryData(cardsData.data);
+      })
       .catch((err) =>
         console.error("error retrieving card information from server!", err)
       );
@@ -30,9 +33,9 @@ export default function App() {
     setGoGlossary(!goGlossary);
   };
 
-  const handleCollectionButtonClick = () => {
+  const handleNukeButtonClick = () => {
     setClickButton(!clickButton);
-    setGoCollection(!goCollection);
+    setGoNuke(!goNuke);
   };
 
   return (
@@ -43,8 +46,8 @@ export default function App() {
           <GlossaryButton
             handleGlossaryButtonClick={handleGlossaryButtonClick}
           />
-          <CollectionButton
-            handleCollectionButtonClick={handleCollectionButtonClick}
+          <NukeButton
+            handleNukeButtonClick={handleNukeButtonClick}
           />
         </div>
       )}
@@ -53,9 +56,9 @@ export default function App() {
           <Glossary glossaryData={glossaryData} />
         </div>
       )}
-      {goCollection && (
+      {goNuke && (
         <div>
-          <Collection />
+          <Nuke />
         </div>
       )}
     </div>
