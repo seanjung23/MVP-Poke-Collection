@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import GlossaryEntry from "./GlossaryEntry.jsx";
 import SearchIcon from "./../icons/SearchIcon.jsx";
 
-export default function Glossary({ glossaryData, goGlossary, setGoGlossary }) {
+export default function Glossary({ glossaryData, handleGlossaryButtonClick }) {
   const [displayedCards, setDisplayedCards] = useState(glossaryData.slice());
   const glossaryQuery = useRef();
 
@@ -19,7 +19,7 @@ export default function Glossary({ glossaryData, goGlossary, setGoGlossary }) {
 
   return (
     <div>
-      <h1 className="main-title-glossary" onClick={() => setGoGlossary(!goGlossary)}>
+      <h1 className="main-title-glossary" onClick={handleGlossaryButtonClick}>
         PokéGlossary
       </h1>
       <div className="search-bar">
