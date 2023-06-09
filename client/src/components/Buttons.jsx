@@ -2,13 +2,15 @@ import React from "react";
 
 export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   return (
-    <button
+    <div>
+      <button
       className="main-button"
       type="button"
       onClick={handleGlossaryButtonClick}
     >
       Go to PokéGlossary
     </button>
+    </div>
   );
 };
 
@@ -19,7 +21,9 @@ export const NukeButton = ({ handleNukeButtonClick }) => {
       type="button"
       onClick={handleNukeButtonClick}
     >
-      Nuke Pokédex D:&lt;
+      Nuke<br></br>
+      Pokédex<br></br>
+      D:&lt;
     </button>
     </div>
   );
