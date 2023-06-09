@@ -7,7 +7,7 @@ export default function GlossaryEntry({card}) {
 
   const low = () => {
     if (card.tcgplayer.prices === undefined) {
-      return "Not Available";
+      return "N/A";
     } else if (
       card.tcgplayer.prices.normal &&
       card.tcgplayer.prices.holofoil === undefined
@@ -23,7 +23,7 @@ export default function GlossaryEntry({card}) {
 
   const market = () => {
     if (card.tcgplayer.prices === undefined) {
-      return "Not Available";
+      return "N/A";
     } else if (
       card.tcgplayer.prices.normal &&
       card.tcgplayer.prices.holofoil === undefined

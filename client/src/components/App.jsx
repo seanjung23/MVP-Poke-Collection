@@ -6,7 +6,6 @@ import { GlossaryButton, NukeButton } from "./Buttons.jsx";
 
 export default function App() {
   const [glossaryData, setGlossaryData] = useState([]);
-  const [clickButton, setClickButton] = useState(true);
   const [goGlossary, setGoGlossary] = useState(false);
   const [goNuke, setGoNuke] = useState(false);
 
@@ -29,31 +28,29 @@ export default function App() {
   }, []);
 
   const handleGlossaryButtonClick = () => {
-    setClickButton(!clickButton);
     setGoGlossary(!goGlossary);
   };
 
   const handleNukeButtonClick = () => {
-    setClickButton(!clickButton);
     setGoNuke(!goNuke);
   };
 
   return (
     <div>
-      {clickButton && (
+      {!goGlossary && (
         <div>
           <h1 className="main-title">Pokédex</h1>
-          <GlossaryButton
-            handleGlossaryButtonClick={handleGlossaryButtonClick}
-          />
           <NukeButton
             handleNukeButtonClick={handleNukeButtonClick}
+          />
+          <GlossaryButton
+            handleGlossaryButtonClick={handleGlossaryButtonClick}
           />
         </div>
       )}
       {goGlossary && (
         <div>
-          <Glossary glossaryData={glossaryData} />
+          <Glossary glossaryData={glossaryData} goGlossary={goGlossary} setGoGlossary={setGoGlossary}/>
         </div>
       )}
       {goNuke && (

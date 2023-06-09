@@ -1,8 +1,183 @@
+@font-face {
+  font-family: "Pokemon GB";
+  src: url("fonts/PokemonGB.ttf");
+}
+
+body {
+  font-family: "Pokemon GB";
+  -webkit-font-smoothing: none;
+}
+
+.main-title {
+  color: #ffcb05;
+  display: flex;
+  font-size: 3em;
+  justify-content: center;
+  text-shadow: 3px 0 #2a75bb, -2px 0 #2a75bb, 0 2px #2a75bb, 0 -2px #2a75bb, 0px 1px #2a75bb, -1px -1px #2a75bb, 1px -1px #2a75bb, -1px 1px #2a75bb;
+}
+
+.main-title-glossary{
+  color: #ffcb05;
+  display: flex;
+  font-size: 3em;
+  justify-content: center;
+  text-shadow: 3px 0 #2a75bb, -2px 0 #2a75bb, 0 2px #2a75bb, 0 -2px #2a75bb, 0px 1px #2a75bb, -1px -1px #2a75bb, 1px -1px #2a75bb, -1px 1px #2a75bb;
+}
+.main-title-glossary:hover {
+  cursor: pointer;
+}
+
+.main-button {
+  background-color: rgba(216, 212, 207);
+  border-image: url("https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png") 42 round;
+  border-radius: 1%;
+  border-width: 1.3125em;
+  font-family: "Pokemon GB";
+  max-width: 100%;
+  padding: 1em;
+  position: relative;
+  transition: 0.1s;
+  width: 100%;
+}
+
+.main-button:hover::before, .main-button:hover::before {
+  box-shadow: 1em 0em 0 #181010, 2em 0em 0 #181010, 1em 1em 0 #181010, 2em 1em 0 #181010, 3em 1em 0 #181010, 1em 2em 0 #181010, 2em 2em 0 #181010, 3em 2em 0 #181010, 4em 2em 0 #181010, 1em 3em 0 #181010, 2em 3em 0 #181010, 3em 3em 0 #181010, 4em 3em 0 #181010, 5em 3em 0 #181010, 1em 4em 0 #181010, 2em 4em 0 #181010, 3em 4em 0 #181010, 4em 4em 0 #181010, 1em 5em 0 #181010, 2em 5em 0 #181010, 3em 5em 0 #181010, 1em 6em 0 #181010, 2em 6em 0 #181010;
+  color: #181010;
+  content: "";
+  font-size: 2px;
+  height: 2px;
+  left: 35%;
+  position: absolute;
+  top: 27%;
+  width: 2px;
+}
+
+.main-button:hover {
+  background-color: lightgoldenrodyellow;
+  box-shadow: 0px 0px 15px rgba(33, 33, 33, .5);
+  cursor: pointer;
+}
+
+@keyframes colorChange {
+  0% {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  50% {
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+  }
+  100% {
+    background-color: rgb(255, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+}
+
+.nuclear {
+  display: flex;
+  justify-content: center;
+}
+
+.nuclear button {
+  animation: colorChange 2s infinite;
+  border-radius: 50%;
+  font-weight: bold;
+  height: 5em;
+  margin: 1%;
+  transition: 0.1s;
+}
+
+.nuclear button:hover {
+  box-shadow: 0px 0px 15px rgba(33, 33, 33, .5);
+  color: white;
+  cursor: pointer;
+}
+
+.nuke-container {
+  display: flex;
+  justify-content: center;
+}
+
+.nuke-img {
+  width: 90%;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.search-bar input{
+  border-image: url("https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png") 42 round;
+  border-radius: 1%;
+  border-width: 0.6em;
+  font-size: 1.5em;
+  height: 2vw;
+  outline: none;
+  padding: 0.1em 0.1em;
+  width: 75vw;
+}
+
+.search-icon {
+  float: right;
+  height: 2.5vh;
+  position: relative;
+  right: 3.5vw;
+  top: 2.5vh;
+}
+
+.search-icon:hover {
+  cursor: pointer;
+}
+
+.search-icon-path {
+  fill: rgb(128, 128, 128);
+}
+
+.search-icon-path:hover {
+  fill: rgb(0, 0, 0);
+}
+
+.poke-cards{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5em;
+}
+
+.poke-card {
+  align-items: center;
+  background-color: rgba(216, 212, 207);
+  border: 1em solid #000000;
+  border-image: url(https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png) 42 round;
+  border-radius: 1%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0.25em;
+  transition: 0.1s;
+  width: 25vw;
+  flex-wrap: wrap;
+}
+
+.poke-card:hover {
+  cursor: pointer;
+  background-color: lightgoldenrodyellow;
+  box-shadow: 0px 0px 15px rgba(33, 33, 33, .5);
+}
+
+.poke-image {
+  height: 20vw;
+  margin: 0.5em;
+  width: 15vw;
+}
+
 .details-modal {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   bottom: 0;
   color: #202020;
+  cursor: default;
   display: flex;
   justify-content: center;
   left: 0;
@@ -14,6 +189,9 @@
 
 .details-modal-content {
   background-color: rgba(216, 212, 207);
+  border: 1em solid #000000;
+  border-image: url("https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png") 42 round;
+  border-radius: 1%;
   width: 50vw;
 }
 
@@ -22,78 +200,49 @@
   padding: 0.6em;
 }
 
-.details-modal-title,
-.details-modal-subtitle {
+.details-modal-title {
+  color: #3B4CCA;
+  font-style: italic;
   margin: 0;
 }
 
 .details-modal-body {
   border-bottom: 0.06em solid #000000;
   border-top: 0.06em solid #000000;
+  display: flex;
+  justify-content: space-evenly;
   padding: 0.6em;
 }
 
-.poke-cards{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 5em;
+.modal-body-main-heading {
+  color: #000000;
+  padding: 0.2em;
 }
 
-.poke-card {
-  border: 0.125em solid #000000;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  margin: 0.25em;
-  width: 26vw;
+.modal-body-heading {
+  border-bottom: 0.1em solid;
+  color: #e4000f;
+  padding: 0.2em;
 }
 
-.poke-card:hover {
+.details-modal-body p{
+  color: #c7a008;
+}
+
+.close-button {
+  background-color: rgb(203, 198, 192);
+  border-image: url("https://luttje.github.io/css-pokemon-gameboy/styles/images/frame-hd.png") 42 round;
+  border-radius: 1%;
+  border-width: 1.3125em;
+  font-family: "Pokemon GB";
+  margin-top: 1em;
+  max-width: 100%;
+  padding: 1em;
+  position: relative;
+  width: 100%;
+}
+
+.close-button:hover {
+  background-color: lightgoldenrodyellow;
   cursor: pointer;
-}
-
-.poke-image {
-  height: 20vw;
-  margin: 0;
-  width: 15vw;
-}
-
-@keyframes colorChange {
-  0% {
-    background-color: red;
-  }
-  50% {
-    background-color: rgb(177, 96, 96);
-  }
-  100% {
-    background-color: red;
-  }
-}
-
-.nuclear button {
-  background-color: white;
-  animation: colorChange 2s infinite;
-  margin: 3%;
-  height: 9em;
-  border-radius: 50%;
-  font-weight: bold;
-}
-
-.nuclear button:hover {
-  color: white;
-}
-
-.nuke-page {
-  font-size: 20em;
-  text-align: center;
-}
-
-.nuke-container {
-  display: flex;
-  justify-content: center;
-}
-
-.nuke-img {
-  width: 90%;
 }
