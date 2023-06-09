@@ -14,16 +14,19 @@ export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   );
 };
 
-export const NukeButton = ({ handleNukeButtonClick }) => {
+export const NukeButton = ({ handleNukeButtonClick, warnNukeUser }) => {
   return (
     <div className="nuclear">
       <button
       type="button"
-      onClick={handleNukeButtonClick}
+      onClick={() => {
+        handleNukeButtonClick();
+        warnNukeUser();
+      }}
     >
       Nuke<br></br>
       Pokédex<br></br>
-      D:&lt;
+      &#128512;
     </button>
     </div>
   );

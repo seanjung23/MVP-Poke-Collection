@@ -96,10 +96,11 @@ body {
 .nuke-container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .nuke-img {
-  width: 90%;
+  width: 80%;
 }
 
 .search-bar {
