@@ -1,6 +1,6 @@
 import React, { useRef, useState } from "react";
 import GlossaryEntry from "./GlossaryEntry.jsx";
-import SearchIcon from "./../icons/SearchIcon.jsx";
+import Search from "./Search.jsx";
 
 export default function Glossary({ glossaryData, handleGlossaryButtonClick }) {
   const [displayedCards, setDisplayedCards] = useState(glossaryData.slice());
@@ -19,20 +19,10 @@ export default function Glossary({ glossaryData, handleGlossaryButtonClick }) {
 
   return (
     <div>
-      <h1 className="main-title-glossary" onClick={handleGlossaryButtonClick}>
+      <h1 className="main-title" onClick={handleGlossaryButtonClick}>
         PokéGlossary
       </h1>
-      <div className="search-bar">
-        <label>
-          <input
-            type="text"
-            placeholder="Search Pokèmon..."
-            ref={glossaryQuery}
-            onChange={searchPokedex}
-          ></input>
-        </label>
-        <SearchIcon />
-      </div>
+      <Search glossaryQuery={glossaryQuery} searchPokedex={searchPokedex}/>
       <div className="poke-cards">
         {displayedCards.map((card, index) => (
           <GlossaryEntry key={index} card={card} />

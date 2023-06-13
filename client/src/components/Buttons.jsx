@@ -1,5 +1,24 @@
 import React from "react";
 
+export const NukeButton = ({ handleNukeButtonClick, warnNukeUser }) => {
+  return (
+    <div className="nuclear">
+      <button
+      type="button"
+      onClick={() => {
+        handleNukeButtonClick();
+        warnNukeUser();
+      }}
+    >
+      Nuke<br></br>
+      Pokédex<br></br>
+      &#128512;
+    </button>
+    </div>
+  );
+};
+
+
 export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   return (
     <div>
@@ -14,19 +33,15 @@ export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   );
 };
 
-export const NukeButton = ({ handleNukeButtonClick, warnNukeUser }) => {
+export const FavoritesButton = ({ handleFavoritesButtonClick }) => {
   return (
-    <div className="nuclear">
+    <div>
       <button
+      className="main-button"
       type="button"
-      onClick={() => {
-        handleNukeButtonClick();
-        warnNukeUser();
-      }}
+      onClick={handleFavoritesButtonClick}
     >
-      Nuke<br></br>
-      Pokédex<br></br>
-      &#128512;
+      Go to Favorites
     </button>
     </div>
   );

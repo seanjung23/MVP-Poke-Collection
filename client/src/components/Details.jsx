@@ -1,12 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
+import HeartIcon from "./../icons/HeartIcon.jsx";
 
 export default function Details({ card, clickedPokemon, setClickedPokemon }) {
+  const [focused, setFocused] = useState(false);
+
+  const color = {
+    false: "none",
+    true: "red"
+  };
+
+  const handleContentClick = (event) => {
+    event.stopPropagation();
+  };
+
+  const handleFavoriteClick = () => {
+    if (!focused) {
+      axios
+        .post("/favorite", {id: card.id})
+        .then((response) => console.log("Successfully added to favorites!", response))
+        .catch((err) => console.error(err));
+    }
+
+    setFocused(!focused);
+  };
+
   return (
     <div className="details-modal">
-      <div className="details-modal-content">
+      <div className="details-modal-content" onClick={handleContentClick}>
         <div className="details-modal-header">
           <h4 className="details-modal-title">
             {card.name} - {card.set.name} Set
+            <HeartIcon focused={focused} setFocused={setFocused} color={color} handleFavoriteClick={handleFavoriteClick}/>
           </h4>
         </div>
         <div className="details-modal-body">

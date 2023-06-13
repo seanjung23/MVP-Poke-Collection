@@ -1,6 +1,6 @@
 const axios = require('axios');
 require('dotenv').config();
-const {} = require('./db.js');
+const { getAll, save, remove } = require('./db.js');
 
 const config = {
   headers: {
@@ -16,9 +16,13 @@ module.exports = {
 
     try {
       const response = await axios.get('https://api.pokemontcg.io/v2/cards', request);
-      return response.data;
+      return response;
     } catch (error) {
-      console.error('error retrieving card information from server!', error);
+      console.error('error retrieving card information from API!', error);
     }
-  }
+  },
+
+  getAll: getAll,
+  save: save,
+  remove: remove
 };

@@ -16,14 +16,7 @@ body {
   text-shadow: 3px 0 #2a75bb, -2px 0 #2a75bb, 0 2px #2a75bb, 0 -2px #2a75bb, 0px 1px #2a75bb, -1px -1px #2a75bb, 1px -1px #2a75bb, -1px 1px #2a75bb;
 }
 
-.main-title-glossary{
-  color: #ffcb05;
-  display: flex;
-  font-size: 3em;
-  justify-content: center;
-  text-shadow: 3px 0 #2a75bb, -2px 0 #2a75bb, 0 2px #2a75bb, 0 -2px #2a75bb, 0px 1px #2a75bb, -1px -1px #2a75bb, 1px -1px #2a75bb, -1px 1px #2a75bb;
-}
-.main-title-glossary:hover {
+.main-title:hover {
   cursor: pointer;
 }
 
@@ -173,6 +166,10 @@ body {
   width: 15vw;
 }
 
+.heart-icon:hover {
+  cursor: pointer;
+}
+
 .details-modal {
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
@@ -202,8 +199,11 @@ body {
 }
 
 .details-modal-title {
+  align-items: flex-end;
   color: #3B4CCA;
+  display: flex;
   font-style: italic;
+  justify-content: space-between;
   margin: 0;
 }
 
