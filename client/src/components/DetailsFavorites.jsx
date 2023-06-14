@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import HeartIcon from "./../icons/HeartIcon.jsx";
 
-export default function Details({ card, clickedPokemon, setClickedPokemon }) {
-  const [focused, setFocused] = useState(false);
+export default function DetailsFavorites({ card, clickedPokemon, setClickedPokemon }) {
+  const [focused, setFocused] = useState(true);
 
   const color = {
     false: "none",
@@ -15,11 +15,12 @@ export default function Details({ card, clickedPokemon, setClickedPokemon }) {
   };
 
   const handleFavoriteClick = () => {
-    if (!focused) {
+    if (focused) {
+
       axios
-        .post("/favorite", { id: card.id })
+        .delete('/favorite', { data: { id: card.id } })
         .then((response) =>
-          console.log("Successfully added to favorites!", response)
+          console.log("Successfully deleted from favorites!", response)
         )
         .catch((err) => console.error(err));
     }

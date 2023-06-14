@@ -3,7 +3,6 @@ import Details from './Details.jsx';
 
 export default function GlossaryEntry({card}) {
   const [clickedPokemon, setClickedPokemon] = useState(false);
-  // console.log(card);
 
   const low = () => {
     if (card.tcgplayer.prices === undefined) {

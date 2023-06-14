@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { NukeButton, GlossaryButton, FavoritesButton } from "./Buttons.jsx";
+import { NukeButton, GlossaryButton } from "./Buttons.jsx";
 import Nuke from "./Nuke.jsx";
 import Glossary from "./Glossary.jsx";
-import Favorites from "./Favorites.jsx";
 
 export default function App() {
   const [glossaryData, setGlossaryData] = useState([]);
@@ -11,7 +10,6 @@ export default function App() {
   const [clickButton, setClickButton] = useState(false);
   const [goNuke, setGoNuke] = useState(false);
   const [goGlossary, setGoGlossary] = useState(false);
-  const [goFavorites, setGoFavorites] = useState(false);
 
   useEffect(() => {
     let params = {
@@ -31,16 +29,18 @@ export default function App() {
       );
 
     axios
-      .get("/favorites")
+      .get("/favorite")
       .then((cardsData) => {
         console.log("this is favorites data", cardsData);
-        // setFavoritesData(cardsData.data);
+        setFavoritesData(cardsData.data);
       })
       .catch((err) =>
-        console.error("error retrieving fasfsaasfascard information from server!", err)
+        console.error(
+          "error retrieving fasfsaasfascard information from server!",
+          err
+        )
       );
   }, []);
-
 
   const handleNukeButtonClick = () => {
     setClickButton(!clickButton);
@@ -52,15 +52,10 @@ export default function App() {
     setGoGlossary(!goGlossary);
   };
 
-  const handleFavoritesButtonClick = () => {
-    setClickButton(!clickButton);
-    setGoFavorites(!goFavorites);
-  };
-
   const warnNukeUser = () => {
-    alert("Are you sure you want to proceed? There is no turning back.")
-    alert("Too late, have a wonderful day! 🗿")
-  }
+    alert("Are you sure you want to proceed? There is no turning back.");
+    alert("Too late, have a wonderful day! 🗿");
+  };
 
   return (
     <div>
@@ -74,9 +69,6 @@ export default function App() {
           <GlossaryButton
             handleGlossaryButtonClick={handleGlossaryButtonClick}
           />
-          <FavoritesButton
-            handleFavoritesButtonClick={handleFavoritesButtonClick}
-          />
         </div>
       )}
       {goNuke && (
@@ -86,15 +78,13 @@ export default function App() {
       )}
       {goGlossary && (
         <div>
-          <Glossary glossaryData={glossaryData} handleGlossaryButtonClick={handleGlossaryButtonClick}/>
+          <Glossary
+            glossaryData={glossaryData}
+            favoritesData={favoritesData}
+            handleGlossaryButtonClick={handleGlossaryButtonClick}
+          />
         </div>
       )}
-      {goFavorites && (
-        <div>
-          <Favorites handleFavoritesButtonClick={handleFavoritesButtonClick}/>
-        </div>
-      )}
-
     </div>
   );
 }

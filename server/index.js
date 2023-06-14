@@ -13,28 +13,21 @@ app.get("/cards", (req, res) => {
     .catch((err) => console.log("error retrieving data from controller", err));
 });
 
-// app.get("/favorites", (req, res) => {
-//   getAll()
-//     .then((response) => {
-//       let responseObj = [];
-//       // { q: 'id:base1', page: '1', orderBy: 'set.releaseDate' }
-//       response.forEach((data) => {
-//         let params = {
-//           q: data.id,
-//           page: '1',
-//           orderBy: "set.releaseDate"
-//         };
-
-//         retrieveCardsAPI(params)
-//         .then((apiResponse) => console.log(apiResponse))
-//         .catch((err) => console.error(err));
-//       })
-//     })
-//     .catch((err) => console.error("error retrieving data from controller", err));
-// })
+app.get("/favorite", (req, res) => {
+  getAll()
+    .then((response) => res.send(response))
+    .catch((err) => console.error("error retrieving data from controller", err));
+})
 
 app.post("/favorite", (req, res) => {
   save(req.body)
+    .then((response) => res.send(response))
+    .catch((err) => console.error(err))
+})
+
+app.delete("/favorite", (req, res) => {
+  // console.log(req.body);
+  remove(req.body)
     .then((response) => res.send(response))
     .catch((err) => console.error(err))
 })

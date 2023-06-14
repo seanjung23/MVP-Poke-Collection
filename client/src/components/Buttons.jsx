@@ -33,13 +33,29 @@ export const GlossaryButton = ({ handleGlossaryButtonClick }) => {
   );
 };
 
-export const FavoritesButton = ({ handleFavoritesButtonClick }) => {
+export const GlossaryButton2 = ({ setGoFavorites, goFavorites }) => {
   return (
     <div>
       <button
       className="main-button"
       type="button"
-      onClick={handleFavoritesButtonClick}
+      onClick={() => setGoFavorites(!goFavorites)}
+    >
+      Go to PokéGlossary
+    </button>
+    </div>
+  );
+};
+
+export const FavoritesButton = ({ setFavoriteDisplayedCards }) => {
+  return (
+    <div>
+      <button
+      className="main-button"
+      type="button"
+      onClick={() => {
+        setFavoriteDisplayedCards();
+      }}
     >
       Go to Favorites
     </button>
