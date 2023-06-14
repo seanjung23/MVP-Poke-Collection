@@ -1,11 +1,11 @@
-const axios = require('axios');
-require('dotenv').config();
-const { getAll, save, remove } = require('./db.js');
+const axios = require("axios");
+require("dotenv").config();
+const { getAll, save, remove } = require("./db.js");
 
 const config = {
   headers: {
-    "X-Api-Key": process.env.API_TOKEN
-  }
+    "X-Api-Key": process.env.API_TOKEN,
+  },
 };
 
 module.exports = {
@@ -15,14 +15,17 @@ module.exports = {
     request.params = query;
 
     try {
-      const response = await axios.get('https://api.pokemontcg.io/v2/cards', request);
+      const response = await axios.get(
+        "https://api.pokemontcg.io/v2/cards",
+        request
+      );
       return response;
     } catch (error) {
-      console.error('error retrieving card information from API!', error);
+      console.error("error retrieving card information from API!", error);
     }
   },
 
   getAll: getAll,
   save: save,
-  remove: remove
+  remove: remove,
 };

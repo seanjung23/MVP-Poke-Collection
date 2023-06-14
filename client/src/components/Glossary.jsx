@@ -7,7 +7,7 @@ import { FavoritesButton } from "./Buttons.jsx";
 export default function Glossary({
   glossaryData,
   favoritesData,
-  handleGlossaryButtonClick,
+  handleGlossaryButtonClick
 }) {
   const [displayedCards, setDisplayedCards] = useState(glossaryData.slice());
   const [displayedFavoriteCards, setDisplayedFavoriteCards] = useState([]);

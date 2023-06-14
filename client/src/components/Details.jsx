@@ -28,8 +28,8 @@ export default function Details({ card, clickedPokemon, setClickedPokemon }) {
   };
 
   return (
-    <div className="details-modal">
-      <div className="details-modal-content" onClick={handleContentClick}>
+    <div className="details-modal" onClick={handleContentClick}>
+      <div className="details-modal-content">
         <div className="details-modal-header">
           <h4 className="details-modal-title">
             {card.name} - {card.set.name} Set

@@ -14,7 +14,10 @@ export default function Favorites({
       <h1 className="main-title" onClick={handleGlossaryButtonClick}>
         Favorites
       </h1>
-        <GlossaryButton2 setGoFavorites={setGoFavorites} goFavorites={goFavorites} />
+      <GlossaryButton2
+        setGoFavorites={setGoFavorites}
+        goFavorites={goFavorites}
+      />
       <div className="poke-cards">
         {displayedFavoriteCards.map((card, index) => (
           <FavoritesEntry key={index} card={card} />

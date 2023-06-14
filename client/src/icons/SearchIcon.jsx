@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function () {
-
   return (
     <svg
       className="search-icon"

@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import HeartIcon from "./../icons/HeartIcon.jsx";
 
-export default function DetailsFavorites({ card, clickedPokemon, setClickedPokemon }) {
+export default function DetailsFavorites({
+  card,
+  clickedPokemon,
+  setClickedPokemon
+}) {
   const [focused, setFocused] = useState(true);
 
   const color = {
@@ -16,9 +20,8 @@ export default function DetailsFavorites({ card, clickedPokemon, setClickedPokem
 
   const handleFavoriteClick = () => {
     if (focused) {
-
       axios
-        .delete('/favorite', { data: { id: card.id } })
+        .delete("/favorite", { data: { id: card.id } })
         .then((response) =>
           console.log("Successfully deleted from favorites!", response)
         )
@@ -29,8 +32,8 @@ export default function DetailsFavorites({ card, clickedPokemon, setClickedPokem
   };
 
   return (
-    <div className="details-modal">
-      <div className="details-modal-content" onClick={handleContentClick}>
+    <div className="details-modal" onClick={handleContentClick}>
+      <div className="details-modal-content">
         <div className="details-modal-header">
           <h4 className="details-modal-title">
             {card.name} - {card.set.name} Set

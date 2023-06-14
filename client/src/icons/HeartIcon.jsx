@@ -1,7 +1,6 @@
 import React from "react";
 
-export default function HeartIcon({focused, color, handleFavoriteClick}) {
-
+export default function HeartIcon({ focused, color, handleFavoriteClick }) {
   return (
     <svg
       className="heart-icon"

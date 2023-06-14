@@ -1,7 +1,7 @@
-import React, {useState} from "react";
-import Details from './Details.jsx';
+import React, { useState } from "react";
+import Details from "./Details.jsx";
 
-export default function GlossaryEntry({card}) {
+export default function GlossaryEntry({ card }) {
   const [clickedPokemon, setClickedPokemon] = useState(false);
 
   const low = () => {
@@ -37,7 +37,10 @@ export default function GlossaryEntry({card}) {
   };
 
   return (
-    <div className="poke-card" onClick={() => setClickedPokemon(!clickedPokemon)}>
+    <div
+      className="poke-card"
+      onClick={() => setClickedPokemon(!clickedPokemon)}
+    >
       <img className="poke-image" src={card.images.large}></img>
       <div>
         <h5 className="poke-title">{card.name}</h5>
@@ -46,7 +49,13 @@ export default function GlossaryEntry({card}) {
         <p>Low: {low()}</p>
         <p>Market Price: {market()}</p>
       </div>
-      {clickedPokemon && <Details card={card} clickedPokemon={clickedPokemon} setClickedPokemon={setClickedPokemon} />}
+      {clickedPokemon && (
+        <Details
+          card={card}
+          clickedPokemon={clickedPokemon}
+          setClickedPokemon={setClickedPokemon}
+        />
+      )}
     </div>
   );
 }

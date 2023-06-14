@@ -16,21 +16,22 @@ app.get("/cards", (req, res) => {
 app.get("/favorite", (req, res) => {
   getAll()
     .then((response) => res.send(response))
-    .catch((err) => console.error("error retrieving data from controller", err));
-})
+    .catch((err) =>
+      console.error("error retrieving data from controller", err)
+    );
+});
 
 app.post("/favorite", (req, res) => {
   save(req.body)
     .then((response) => res.send(response))
-    .catch((err) => console.error(err))
-})
+    .catch((err) => console.error(err));
+});
 
 app.delete("/favorite", (req, res) => {
-  // console.log(req.body);
   remove(req.body)
     .then((response) => res.send(response))
-    .catch((err) => console.error(err))
-})
+    .catch((err) => console.error(err));
+});
 
 app.listen(process.env.PORT, function () {
   console.log(`listening on port ${process.env.PORT}`);

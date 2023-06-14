@@ -21,7 +21,7 @@ export default function App() {
     axios
       .get("/cards", { params })
       .then((cardsData) => {
-        console.log(cardsData);
+        console.log("cards data", cardsData);
         setGlossaryData(cardsData.data);
       })
       .catch((err) =>
@@ -31,7 +31,7 @@ export default function App() {
     axios
       .get("/favorite")
       .then((cardsData) => {
-        console.log("this is favorites data", cardsData);
+        console.log("favorites data", cardsData);
         setFavoritesData(cardsData.data);
       })
       .catch((err) =>
@@ -41,6 +41,10 @@ export default function App() {
         )
       );
   }, []);
+
+  const handleReloadClick = () => {
+    window.location.reload();
+  };
 
   const handleNukeButtonClick = () => {
     setClickButton(!clickButton);
@@ -61,7 +65,7 @@ export default function App() {
     <div>
       {!clickButton && (
         <div>
-          <h1 className="main-title">Pokédex</h1>
+          <h1 className="main-title" onClick={handleReloadClick}>Pokédex</h1>
           <NukeButton
             handleNukeButtonClick={handleNukeButtonClick}
             warnNukeUser={warnNukeUser}
